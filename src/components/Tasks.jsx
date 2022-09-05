@@ -1,6 +1,6 @@
 import Task from "./Task";
 
-const Tasks = ({ tasks, onDelete }) => {
+const Tasks = ({ tasks, onDelete, onToggle }) => {
   /**
    * States are immutable. It cant be change directly.s
    */
@@ -10,7 +10,12 @@ const Tasks = ({ tasks, onDelete }) => {
        * and it outpus a component named Task.
        */}
       {tasks.map((task) => (
-        <Task key={task.id} task={task} onDelete={onDelete} />
+        <Task
+          key={task.id}
+          task={task}
+          onDelete={onDelete}
+          onToggle={onToggle}
+        />
       ))}
     </>
   );

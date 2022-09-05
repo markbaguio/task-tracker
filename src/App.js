@@ -4,6 +4,8 @@
 import Header from "./components/Header.jsx";
 import Tasks from "./components/Tasks.jsx";
 import Footer from "./components/Footer.jsx";
+import NoTask from "./components/NoTask.jsx";
+import AddTask from "./components/AddTask.jsx";
 import { useState } from "react";
 
 function App() {
@@ -33,12 +35,40 @@ function App() {
       day: "Sep 3, 2022",
       reminder: false,
     },
+    {
+      id: 4,
+      text: "task 4",
+      day: "September 20, 2022",
+      reminder: true,
+    },
   ]);
 
   // Delete Task
   const deleteTask = (id) => {
     // setTasks(tasks.filter((task) => task.id !== id));
     setTasks(tasks.filter((task) => task.id !== id));
+  };
+
+  // Toggle reminder
+  const toggleReminder = (id) => {
+    setTasks(
+      tasks.map(
+        (task) =>
+          task.id === id ? { ...task, reminder: !task.reminder } : task //... is a spread operator. in this case it just copies the attributes of the specified task except for the reminder.
+      )
+    );
+  };
+
+  // Add Task
+  const addTask = (task) => {
+    const id = Math.floor(Math.random() * 100000) + 1;
+
+    const newTask = {
+      id,
+      ...task,
+    }; /**... is a spread operator. this line means copy all the attributes passed except for the id which is generated randomly. */
+
+    setTasks([...tasks, newTask]);
   };
 
   const clickFooter = () => {
@@ -49,7 +79,17 @@ function App() {
     //this is JSX.
     <div className="container">
       <Header />
-      <Tasks tasks={tasks} onDelete={deleteTask} />
+      <AddTask onAdd={addTask} />
+      {tasks.length > 0 ? (
+        <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
+      ) : (
+        <NoTask
+          alignment="center"
+          color="white
+        "
+        />
+      )}
+
       <Footer
         color="white"
         text="All Rights Reserved."
