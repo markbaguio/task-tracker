@@ -131,9 +131,6 @@ function App() {
 
         <Footer color="white" />
       </div>
-      {/* <Route path="/" element={<App />} />
-        <Route path="/about" element={<About />} /> */}
-      {/* </Routes> */}
     </>
   );
 }
