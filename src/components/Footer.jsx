@@ -1,11 +1,9 @@
-function Footer({ color, text, alignment, onFooterClick }) {
+function Footer({ color, alignment }) {
   return (
-    <div
-      style={{ textAlign: alignment, color: color, cursor: "pointer" }}
-      onClick={onFooterClick}
-    >
-      {text}
-    </div>
+    <footer style={{ textAlign: alignment, color: color, cursor: "pointer" }}>
+      <p>Copyright &copy; 2022</p>
+      <a href="/about">About</a>
+    </footer>
   );
 }
 
