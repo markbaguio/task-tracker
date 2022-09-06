@@ -1,8 +1,14 @@
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import About from "./About";
+
 function Footer({ color, alignment }) {
   return (
     <footer style={{ textAlign: alignment, color: color, cursor: "pointer" }}>
       <p>Copyright &copy; 2022</p>
-      <a href="/about">About</a>
+      <Link to="/about">About</Link>
+      <Routes>
+        <Route path="/about" element={<About />} />
+      </Routes>
     </footer>
   );
 }

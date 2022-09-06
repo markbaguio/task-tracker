@@ -1,22 +1,10 @@
 {
   "tasks": [
     {
-      "text": "learn",
-      "day": "everyday",
+      "text": "get a job and continue learning",
+      "day": "you got this, i believe in you",
       "reminder": true,
       "id": 1
-    },
-    {
-      "text": "you got this",
-      "day": "i believe in you",
-      "reminder": true,
-      "id": 3
-    },
-    {
-      "text": "get a job",
-      "day": "you got this",
-      "reminder": true,
-      "id": 4
     }
   ]
 }

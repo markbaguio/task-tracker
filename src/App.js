@@ -104,8 +104,8 @@ function App() {
 
   return (
     //this is JSX.
-
-    <Router>
+    <>
+      {/* <Routes> */}
       <div className="container">
         <Header
           onToggleAdd={() => setShowAddTask(!showAddTask)}
@@ -131,7 +131,10 @@ function App() {
 
         <Footer color="white" />
       </div>
-    </Router>
+      {/* <Route path="/" element={<App />} />
+        <Route path="/about" element={<About />} /> */}
+      {/* </Routes> */}
+    </>
   );
 }
 
