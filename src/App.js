@@ -43,6 +43,9 @@ function App() {
     },
   ]);
 
+  // for showing/hiding of the add task forms.
+  const [showAddTask, setShowAddTask] = useState(false);
+
   // Delete Task
   const deleteTask = (id) => {
     // setTasks(tasks.filter((task) => task.id !== id));
@@ -68,7 +71,7 @@ function App() {
       ...task,
     }; /**... is a spread operator. this line means copy all the attributes passed except for the id which is generated randomly. */
 
-    setTasks([...tasks, newTask]);
+    setTasks([...tasks, newTask]); // this line copies the existing tasks then it adds the newTask.
   };
 
   const clickFooter = () => {
@@ -78,8 +81,14 @@ function App() {
   return (
     //this is JSX.
     <div className="container">
-      <Header />
-      <AddTask onAdd={addTask} />
+      <Header
+        onToggleAdd={() => setShowAddTask(!showAddTask)}
+        showAdd={showAddTask}
+      />
+      {showAddTask && <AddTask onAdd={addTask} />}
+      {/**this is a short cut for ternary operator without an else. It is also known as shorcircuit.
+       * since showAddTask is boolean and is operated by an AND, if it is false the AddTask component will no be returned.
+       */}
       {tasks.length > 0 ? (
         <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
       ) : (

@@ -2,23 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import Button from "./Button";
 
-const Header = ({ title }) => {
-  const onClick = () => {
-    console.log("click");
-  };
-
-  const onMouseEnter = () => {
-    console.log("mouse enter");
-  };
-
+const Header = ({ title, onToggleAdd, showAdd }) => {
   return (
     <header className="header">
       <h1>{title}</h1>
       <Button
-        color="#369265"
-        text="Add"
-        onClick={onClick}
-        onMouseEnter={onMouseEnter}
+        color={showAdd === true ? "red" : "green"}
+        text={showAdd === true ? "Hide" : "Show"}
+        onClick={onToggleAdd}
       />
       {/**the attribute-looking code are props that can be
        * handled in the button component */}
